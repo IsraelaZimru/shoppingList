@@ -4,14 +4,19 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { FormEventHandler, useState } from "react";
+import { useEffect, useState } from "react";
 
 function FormItem() {
+  const item = null;
   const [data, setData] = useState<TShoppingItem>({
     date: new Date(),
     info: "",
     isDone: false,
   });
+
+  useEffect(() => {
+    if (item) setData(item);
+  }, [item]);
 
   const handleSubmit = (event: React.FormEvent): void => {
     event.preventDefault();
